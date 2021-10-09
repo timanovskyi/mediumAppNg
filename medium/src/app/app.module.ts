@@ -9,6 +9,8 @@ import { environment } from '../environments/environment';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
+import { TopBarModule } from './shared/modules/top-bar/top-bar.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { EffectsModule } from '@ngrx/effects';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule,
     SharedModule,
     HttpClientModule,
     StoreModule.forRoot({}),
@@ -24,7 +27,8 @@ import { EffectsModule } from '@ngrx/effects';
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    TopBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

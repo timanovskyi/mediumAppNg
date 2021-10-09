@@ -17,15 +17,11 @@ export class RegisterComponent implements OnInit {
 
   form: FormGroup = new FormGroup({})
   isSubmitting$: Observable<boolean> = new Observable<boolean>();
-  backendErrors$: Observable<BackendErrorsInterface | null> = new Observable<{} | null>();
+  backendErrors$: Observable<BackendErrorsInterface> = new Observable<BackendErrorsInterface>();
 
   constructor(private _fb: FormBuilder,
               private _store: Store,
   ) {
-  }
-
-  get isSubmitted(): boolean {
-    return this.form.valid
   }
 
   ngOnInit(): void {
@@ -34,9 +30,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    // if (!this.isSubmitted) {
-    //   return
-    // }
     const request: RegisterRequestInterface = {
       user: this.form.value
     }
@@ -52,7 +45,6 @@ export class RegisterComponent implements OnInit {
   }
 
   private _initializeValue() {
-    // @ts-ignore
     this.isSubmitting$ = this._store.pipe(select(isSubmittingSelector))
     // @ts-ignore
     this.backendErrors$ = this._store.pipe(select(validationErrorsSelector))

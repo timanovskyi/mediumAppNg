@@ -11,6 +11,9 @@ import { AuthService } from './services/auth.service';
 import { EffectsModule } from '@ngrx/effects';
 import { RegisterEffect } from './store/effects/register.effect';
 import { SharedModule } from '../shared/shared.module';
+import { LoginEffect } from './store/effects/login.effect';
+import { BackendErrorMessagesModule } from '../shared/modules/backend-error-messages/backend-error-messages.module';
+import { GetCurrentUserEffect } from './store/effects/getCurrentUser.effect';
 
 @NgModule({
   declarations: [
@@ -22,14 +25,17 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     AuthRoutingModule,
     ReactiveFormsModule,
+    EffectsModule.forFeature(
+      [
+        GetCurrentUserEffect,
+        RegisterEffect,
+        LoginEffect
+      ]
+    ),
     StoreModule.forFeature(
       'auth', reducers
     ),
-    EffectsModule.forFeature(
-      [
-        RegisterEffect
-      ]
-    )
+    BackendErrorMessagesModule
   ],
   providers: [
     AuthService

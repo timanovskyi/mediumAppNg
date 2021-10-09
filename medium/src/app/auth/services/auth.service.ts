@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.prod';
 import { AuthResponseInterface } from '../types/authResponse.interface';
 import { map } from 'rxjs/operators';
+import { LoginrRequestInterface } from '../types/loginRequest.interface';
 
 @Injectable()
 export class AuthService {
@@ -17,6 +18,20 @@ export class AuthService {
 
   register(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
     return this._http.post<AuthResponseInterface>(`${this.basePath}/users`, data)
-      .pipe(map((r: AuthResponseInterface) => r.user))
+      .pipe(map(this._getUser))
+  }
+
+  login(data: LoginrRequestInterface): Observable<CurrentUserInterface> {
+    return this._http.post<AuthResponseInterface>(`${this.basePath}/users/login`, data)
+      .pipe(map(this._getUser))
+  }
+
+  getCurrentUser(): Observable<CurrentUserInterface> {
+    return this._http.get<AuthResponseInterface>(`${this.basePath}/user`)
+      .pipe(map(this._getUser))
+  }
+
+  private _getUser(data: AuthResponseInterface): CurrentUserInterface {
+    return data.user
   }
 }
