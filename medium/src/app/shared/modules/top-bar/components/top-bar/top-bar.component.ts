@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CurrentUserInterface } from '../../../../types/currentUser.interface';
 import { select, Store } from '@ngrx/store';
-import { currentUserSelector, isAnonymousSelector, isLoggedInSelector } from '../../../../../auth/store/selectors';
-
+import { currentUserSelector, isAnonymousSelector, isLoggedInSelector } from '../../../../../core/store/selectors';
+import { CurrentUserInterface } from '../../../../types/currentUser.interface';
 @Component({
   selector: 'app-top-bar',
   templateUrl: './top-bar.component.html',
@@ -21,8 +20,8 @@ export class TopBarComponent implements OnInit {
   }
 
   private _initializeValues() {
-     this.isAnonymous$ = this._store.pipe(select(isAnonymousSelector));
+    this.isAnonymous$ = this._store.pipe(select(isAnonymousSelector));
     this.isLoggedIn$ = this._store.pipe(select(isLoggedInSelector));
-    this.currentUser$ = this._store.pipe(select(currentUserSelector));
+    this.currentUser$ = this._store.pipe(select(currentUserSelector))
   }
 }

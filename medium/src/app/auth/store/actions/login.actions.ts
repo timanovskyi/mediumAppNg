@@ -1,6 +1,5 @@
 import { createAction, props } from '@ngrx/store';
 import { ActionTypes } from '../actionTypes';
-import { CurrentUserInterface } from '../../../shared/types/currentUser.interface';
 import { BackendErrorsInterface } from '../../../shared/types/backendErrors.interface';
 import { LoginrRequestInterface } from '../../types/loginRequest.interface';
 
@@ -15,6 +14,5 @@ export const loginFailureAction = createAction(
 )
 
 export const loginSuccessAction = createAction(
-  ActionTypes.LOGIN_SUCCESS,
-  props<{currentUser: CurrentUserInterface}>()
+  ActionTypes.LOGIN_SUCCESS
 )

@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { TopBarModule } from './shared/modules/top-bar/top-bar.module';
 import { CoreModule } from './core/core.module';
+import { GlobalFeedModule } from './global-feed/global-feed.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CoreModule } from './core/core.module';
       logOnly: environment.production
     }),
     EffectsModule.forRoot([]),
-    TopBarModule
+    TopBarModule,
+    GlobalFeedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

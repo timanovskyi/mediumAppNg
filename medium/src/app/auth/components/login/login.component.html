@@ -4,7 +4,7 @@
       <div class="col-md-6 offset-md-3 col-xs-12">
         <h1 class="text-xs-center">Sign In</h1>
         <p class="text-xs-center">
-          <a [routerLink]="['/register']">Need an account?</a>
+          <a [routerLink]="['/auth/register']">Need an account?</a>
         </p>
 
         <app-backend-error-messages *ngIf="backendErrors$ | async"

@@ -6,6 +6,11 @@ export const getCurrentUserAction = createAction(
   ActionTypes.GET_CURRENT_USER
 )
 
+export const updateCurrentUserAction = createAction(
+  ActionTypes.UPDATE_CURRENT_USER,
+  props<{ currentUser: CurrentUserInterface }>()
+)
+
 export const getCurrentUserFailureAction = createAction(
   ActionTypes.GET_CURRENT_USER_FAILURE
 )

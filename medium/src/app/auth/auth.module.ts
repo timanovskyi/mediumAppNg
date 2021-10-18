@@ -13,7 +13,6 @@ import { RegisterEffect } from './store/effects/register.effect';
 import { SharedModule } from '../shared/shared.module';
 import { LoginEffect } from './store/effects/login.effect';
 import { BackendErrorMessagesModule } from '../shared/modules/backend-error-messages/backend-error-messages.module';
-import { GetCurrentUserEffect } from './store/effects/getCurrentUser.effect';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import { GetCurrentUserEffect } from './store/effects/getCurrentUser.effect';
     ReactiveFormsModule,
     EffectsModule.forFeature(
       [
-        GetCurrentUserEffect,
         RegisterEffect,
         LoginEffect
       ]

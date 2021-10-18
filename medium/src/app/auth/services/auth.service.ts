@@ -26,11 +26,6 @@ export class AuthService {
       .pipe(map(this._getUser))
   }
 
-  getCurrentUser(): Observable<CurrentUserInterface> {
-    return this._http.get<AuthResponseInterface>(`${this.basePath}/user`)
-      .pipe(map(this._getUser))
-  }
-
   private _getUser(data: AuthResponseInterface): CurrentUserInterface {
     return data.user
   }
