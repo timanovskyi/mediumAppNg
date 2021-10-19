@@ -1,1 +1,14 @@
-<app-feed></app-feed>
+<div class="home-page">
+  <app-banner></app-banner>
+  <div class="container page">
+    <div class="row">
+      <div class="col-md-9">
+        Feed toggler
+        <app-feed [apiUrl]="apiUrl"></app-feed>
+      </div>
+      <div class="col-md-3">
+        popular tags
+      </div>
+    </div>
+  </div>
+</div>

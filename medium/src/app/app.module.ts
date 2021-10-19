@@ -12,6 +12,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { TopBarModule } from './shared/modules/top-bar/top-bar.module';
 import { CoreModule } from './core/core.module';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
+import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,12 @@ import { GlobalFeedModule } from './global-feed/global-feed.module';
     CoreModule,
     SharedModule,
     HttpClientModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({
+      router: routerReducer
+    }),
+    StoreRouterConnectingModule.forRoot(
+
+    ),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
