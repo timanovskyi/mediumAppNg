@@ -12,6 +12,16 @@ const routes: Routes = [
     canActivate: [CanEnterGuard],
     loadChildren: () => import('./global-feed/global-feed.module').then(m => m.GlobalFeedModule)
   },
+  {
+    path: 'feed',
+    canActivate: [CanEnterGuard],
+    loadChildren: () => import('./your-feed/your-feed.module').then(m => m.YourFeedModule)
+  },
+  {
+    path: 'tag/:slug',
+    canActivate: [CanEnterGuard],
+    loadChildren: () => import('./tag-feed/tag-feed.module').then(m => m.TagFeedModule)
+  },
 ];
 
 @NgModule({

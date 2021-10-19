@@ -24,7 +24,9 @@
       <h1>{{article.title}}</h1>
       <p>{{article.description}}</p>
       <span>Read more...</span>
-      Here list of tags
+      <app-tag-list
+        [tags]="article.tagList"
+      ></app-tag-list>
     </a>
   </div>
   <app-pagination [total]="(feed$ | async)?.articlesCount"

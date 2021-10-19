@@ -1,0 +1,16 @@
+<app-loading *ngIf="isLoading$ | async"></app-loading>
+
+<app-error-message *ngIf="errors$ | async"></app-error-message>
+
+<div class="sidebar" *ngIf="(tags$ | async)?.length > 0; else showEmptyState">
+  <p>Popular Tags</p>
+  <div class="tag-list">
+    <a [routerLink]="['/tag', tag]" *ngFor="let tag of (tags$ | async)" class="tag-default tag-pill">
+      {{tag}}
+      </a>
+  </div>
+</div>
+
+<ng-template #showEmptyState>
+  There are no tags yet
+</ng-template>
