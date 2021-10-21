@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class YourFeedComponent implements OnInit {
 
-  apiUrl = '/articles/feed';
+  apiUrl = '/articles/article';
 
   constructor() { }
 

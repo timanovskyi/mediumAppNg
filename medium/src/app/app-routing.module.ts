@@ -22,6 +22,21 @@ const routes: Routes = [
     canActivate: [CanEnterGuard],
     loadChildren: () => import('./tag-feed/tag-feed.module').then(m => m.TagFeedModule)
   },
+  {
+    path: 'articles',
+    canActivate: [CanEnterGuard],
+    loadChildren: () => import('./create-article/create-article.module').then(m => m.CreateArticleModule)
+  },
+  {
+    path: 'articles',
+    canActivate: [CanEnterGuard],
+    loadChildren: () => import('./edit-article/edit-article.module').then(m => m.EditArticleModule)
+  },
+  {
+    path: 'articles',
+    canActivate: [CanEnterGuard],
+    loadChildren: () => import('./article/article.module').then(m => m.ArticleModule)
+  },
 ];
 
 @NgModule({
