@@ -7,7 +7,7 @@ import { CurrentUserInterface } from '../../../shared/types/currentUser.interfac
 import { of } from 'rxjs';
 import { PersistanceService } from '../../../shared/services/persistance.service';
 import { Router } from '@angular/router';
-import { updateCurrentUserAction } from '../../../core/store/actions/getCurrentUser.actions';
+import { updateStateOfCurrentUserAction } from '../../../core/store/actions/getCurrentUser.actions';
 import { Store } from '@ngrx/store';
 
 @Injectable()
@@ -27,7 +27,7 @@ export class RegisterEffect {
           .pipe(
             map((currentUser: CurrentUserInterface) => {
               this._localStorage.set('accessToken', currentUser.token);
-              this._store.dispatch(updateCurrentUserAction({currentUser}))
+              this._store.dispatch(updateStateOfCurrentUserAction({currentUser}))
               return registerSuccessAction()
             }),
 

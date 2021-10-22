@@ -7,6 +7,8 @@ import { StoreModule } from '@ngrx/store';
 import { GetCurrentUserEffect } from './store/effects/getCurrentUser.effect';
 import { CoreService } from './services/core.service';
 import { reducers } from './store/reducers';
+import { UpdateCurrentUserEffect } from './store/effects/updateCurrentUser.effect';
+import { LogoutEffect } from './store/effects/logout.effect';
 
 
 
@@ -17,6 +19,8 @@ import { reducers } from './store/reducers';
     EffectsModule.forFeature(
       [
         GetCurrentUserEffect,
+        UpdateCurrentUserEffect,
+        LogoutEffect
       ]
     ),
     StoreModule.forFeature(

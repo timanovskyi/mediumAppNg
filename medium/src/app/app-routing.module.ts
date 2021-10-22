@@ -37,6 +37,11 @@ const routes: Routes = [
     canActivate: [CanEnterGuard],
     loadChildren: () => import('./article/article.module').then(m => m.ArticleModule)
   },
+  {
+    path: 'settings',
+    canActivate: [CanEnterGuard],
+    loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
+  },
 ];
 
 @NgModule({
