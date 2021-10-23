@@ -42,6 +42,11 @@ const routes: Routes = [
     canActivate: [CanEnterGuard],
     loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
   },
+  {
+    path: 'profile',
+    canActivate: [CanEnterGuard],
+    loadChildren: () => import('./user-profile/user-profile.module').then(m => m.UserProfileModule)
+  },
 ];
 
 @NgModule({
